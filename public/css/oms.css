@@ -1,0 +1,14 @@
+body {
+background-image:url('background.png')
+}
+
+div.container{
+	background-color:white;
+	
+}
+
+.footer_page{
+		background-color:#666; !important;
+	
+	
+}
