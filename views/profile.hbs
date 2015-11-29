@@ -18,11 +18,19 @@
 <table class="table">
 
 
-<h4><small>Sex:</small> awesome</h4>
-<h4><small>Birthday:</small> 324/123/1232</h4>
-<h4><small>Email:</small> Array</h4>
+<h4><small>Sex:</small> {{user.gender}} </h4>
+<h4><small>Birthday:</small> {{user.birthDate}} </h4>
+<h4><small>Email:</small> 
+		{{#each user.mail}}
+        	<ul>
+        	    <li>{{this}}</li>
+       		 </ul>
+        {{else}}
+        	{{user.mail}}
+        {{/each}}
+        </h4>
 <h4><small>Field of studies:</small> Gunnery Sergeant</h4>
-<h4><small>Tshirt size:</small> m</h4>
+<h4><small>Tshirt size:</small> m </h4>
 
 <h4><small>Memberships:</small></h4>
  <ul class="list-unstyled">

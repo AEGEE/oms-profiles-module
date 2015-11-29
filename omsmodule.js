@@ -59,21 +59,25 @@ router.get('/about', function(req, res) {
 });
 
 // route middleware to validate :name
-router.param('uid', function(req, res, next, name) {
+router.param('uid', function(req, res, next, uid) {
     // do validation on name here
     // blah blah validation
     // log something so we know its working
-    console.log('doing name validations on ' + name);
+    console.log('doing name validations on ' + uid);
 
     // once validation is done save the new item in the req
-    req.name = name;
+    req.uid = uid;
     // go to the next thing
     next(); 
 });
 
 // route with parameters (http://localhost:8080/hello/:name)
 router.get('/user/:uid', function(req, res) {
-    res.render('profile', {"title": req.name});
+    restClient.get('/users/'+req.uid, function(resterr, restreq, restres, restobj) {
+      assert.ifError(resterr);
+      console.log('%j', restobj);
+      res.render('profile', {title: 'Profile of '+req.uid, user: restobj[0]});
+    }); 
 });
 
 // route with parameters (http://localhost:8080/hello/:name)
@@ -102,10 +106,10 @@ router.post('/useradd', function(req, res) {
       assert.ifError(resterr);
       console.log('%d -> %j', restres.statusCode, restres.headers);
       console.log('%j', restobj);
+      //send response accordingly
       res.render('error', {"message": "coddio"});
     });
-    //send response accordingly
-    res.render('registration_success', {"message": "okkei"} );
+    //res.render cannot be here! it's async shit
 });
 
 // apply the routes to our application
