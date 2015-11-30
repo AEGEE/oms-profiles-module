@@ -71,12 +71,32 @@ router.param('uid', function(req, res, next, uid) {
     next(); 
 });
 
+function renderPage(res, view, pageTitle, objects){
+    //view was 'profile'
+
+    res.render(view, {title: pageTitle, user: objects.user, membership: objects.membership}); 
+      
+
+}
+
 // route with parameters (http://localhost:8080/hello/:name)
 router.get('/user/:uid', function(req, res) {
-    restClient.get('/users/'+req.uid, function(resterr, restreq, restres, restobj) {
-      assert.ifError(resterr);
-      console.log('%j', restobj);
-      res.render('profile', {title: 'Profile of '+req.uid, user: restobj[0]});
+
+    restClient.get('/users/'+req.uid, function(resterr1, restreq1, restres1, restobj1) {
+
+        assert.ifError(resterr1);
+
+        restClient.get('/users/'+req.uid+'/memberships', function(resterr, restreq, restres, restobj) {
+
+          assert.ifError(resterr);
+          console.log('\n %j \n \n %j', restobj1[0], restobj); //The core always returns an array (even for single element)
+
+          //renderPage(res, 'profile', 'Profile of '+req.uid, {user: restobj1[0], membership: restobj[0]} );
+
+          res.render('profile', {title: 'Profile of '+req.uid, user: restobj1[0], membership: restobj }); 
+    
+        });
+
     }); 
 });
 
