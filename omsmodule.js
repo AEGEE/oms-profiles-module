@@ -58,7 +58,7 @@ router.get('/about', function(req, res) {
     res.send('im the about page!'); 
 });
 
-// route middleware to validate :name
+// route middleware to validate :uid
 router.param('uid', function(req, res, next, uid) {
     // do validation on name here
     // blah blah validation
@@ -71,13 +71,6 @@ router.param('uid', function(req, res, next, uid) {
     next(); 
 });
 
-function renderPage(res, view, pageTitle, objects){
-    //view was 'profile'
-
-    res.render(view, {title: pageTitle, user: objects.user, membership: objects.membership}); 
-      
-
-}
 
 // route with parameters (http://localhost:8080/hello/:name)
 router.get('/user/:uid', function(req, res) {
@@ -100,7 +93,48 @@ router.get('/user/:uid', function(req, res) {
     }); 
 });
 
-// route with parameters (http://localhost:8080/hello/:name)
+
+
+router.get('/login', function(req, res) {
+    res.render('signin', {"title": "Login"});
+});
+
+// route middleware to validate :bodycode
+router.param('bodycode', function(req, res, next, bodycode) {
+    // do validation on name here
+    // blah blah validation
+    // log something so we know its working
+    console.log('doing name validations on ' + bodycode);
+
+    // once validation is done save the new item in the req
+    req.bodycode = bodycode;
+    // go to the next thing
+    next(); 
+});
+
+router.get('/applicants/:bodycode', function(req, res) {        
+    restClient.get('/bodies/'+req.params.bodycode+'/applications', function(resterr, restreq, restres, restobj) {
+        assert.ifError(resterr);
+        console.log('\n %j \n', restobj); 
+        //renderPage(res, 'profile', 'Profile of '+req.uid, {user: restobj1[0], membership: restobj[0]} );
+        res.render('applicants', {title: 'List of applicants to '+req.bodycode, body: req.bodycode, applicant: restobj });
+    });
+});
+
+router.get('/members/:bodycode', function(req, res) {        
+    restClient.get('/bodies/'+req.params.bodycode+'/members', function(resterr, restreq, restres, restobj) {
+        assert.ifError(resterr);
+        console.log('\n %j \n', restobj); 
+        //renderPage(res, 'profile', 'Profile of '+req.uid, {user: restobj1[0], membership: restobj[0]} );
+        res.render('members', {title: 'List of members of '+req.bodycode, body: req.bodycode, applicant: restobj });
+    });
+});
+
+//router.get('/applications/:uid', function(req, res) {
+//    res.render('applications', {title: 'Bodies '+req.uid+' applied to'});
+//});
+
+
 router.get('/register', function(req, res) {
     res.render('register', {"title": "register new user"});
 });
