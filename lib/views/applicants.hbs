@@ -1,17 +1,18 @@
 
 
      <div class="bs-docs-header" id="content">
-        <div class="container" >	
-		<h1>List of applicants to the body: {{body}}</h1>
+        <div class="container" >  
+    <h1>List of applicants to the body: {{bodyCode}}</h1>
         <p> </p>
-		<hr>
+    <hr>
         
 </div>
       </div>
     
-<div class="container">	
-	
+<div class="container"> 
+  
  
+<form action="/applications/processmembership"  method="post" class="form-inline">
 <table class="table table-hover">
   <tr>
     <th>Name</th>
@@ -29,56 +30,62 @@
         <td>{{memberSinceDate}}</td>
         <td>{{mail}}</td>
 
-        <td>
-                <form action="processMembership.php"  method="post" class="form-inline">
-					<div class="form-group">
-						<input type="hidden" name="uid" value=new.member  class="form-control"></input>
-						<input type="hidden" name="bodyCode" value=ITC  class="form-control"></input>
-						<div class="radio-inline has-success">
-						<label>
-							
-								<input type="radio" name="memberType" value="Member"> Accept</input>
-							
-						</label>
-						</div>
-						<div class="radio-inline has-error">
-						<label>
-							
-								<input type="radio" name="memberType" value="Rejected">Reject</input>
-							
-						</label>
-						</div>
-						<button type="submit" onClick="window.location.reload()" class="btn btn-info">submit</button>
-					</div>
-                </form>
+        <td>    
+          <div class="form-group">
+            <!-- as of now the hidden fields are useless - the uid and member are coded inline of the memberType-->
+            <input type="hidden" name="uid" value={{uid}}  class="form-control"></input>
+            <input type="hidden" name="bodyCode" value={{bodyCode}}  class="form-control"></input>
+
+            <div class="radio-inline has-success">
+            <label>
+                <input type="radio" name="memberType-{{uid}}-{{bodyCode}}" value="Member">Accept</input>
+            </label>
+            </div>
+
+            <div class="radio-inline has-error">
+            <label>
+                <input type="radio" name="memberType-{{uid}}-{{bodyCode}}" value="Rejected">Reject</input>
+            </label>
+            </div>
+
+            <div class="radio-inline has-warning">
+            <label>
+                <input type="radio" name="memberType-{{uid}}-{{bodyCode}}" value="Applicant" checked>Decide later</input>
+            </label>
+            </div>
+            
+          </div>
+                
         </td>
 
 
-      </tr> 
- {{/each}}   
-      
-
+      </tr>
+  
+ {{/each}} 
 
       </tr> 
     </br>
-</table>   
+</table>  
+
+<button type="submit" onClick="window.location.reload()" class="btn btn-info">submit</button>
+ </form> 
 
     </div> <!-- /container -->
-	
-	<footer class="bs-docs-footer">
-	<div class="container" style="background-color:#666; !important;">	
-	
-		</br>
+  
+  <footer class="bs-docs-footer">
+  <div class="container" style="background-color:#666; !important;">  
+  
+    </br>
   <img class="img-responsive" src="/static/css/logo_rgb_white_transparent_small.png">
   
-  	</br>
-	
-			
+    </br>
+  
+      
     </div> 
-	</footer>
-	
-	
-	
+  </footer>
+  
+  
+  
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
