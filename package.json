@@ -1,7 +1,13 @@
 {
-  "name": "profiles",
-  "main": "omsmodule.js",
+  "name": "oms-profiles-module",
   "version": "0.0.6",
+  "description": "Consumer of REST API of AEGEE's infrastructure",
+  "license": "Apache-2.0",
+  "repository": "AEGEE/oms-profiles-module",
+  "main": "omsmodule.js",
+  
+  "repository": "AEGEE/oms-profiles-module",
+
   "dependencies": {
     "express": "~4.0.0",
     "express-handlebars": "~2.0.0",
