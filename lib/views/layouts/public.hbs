@@ -47,13 +47,38 @@
 	<!-- ================== END BASE JS ================== -->
 	
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="assets/plugins/parsley/dist/parsley.js"></script>
+	<script src="assets/plugins/bootstrap-wizard/js/bwizard.js"></script>
+	<script src="assets/js/form-wizards-validation.demo.min.js"></script>
 	<script src="assets/js/apps.min.js"></script>
+	
+	<script src="assets/plugins/password-indicator/js/password-indicator.js"></script>
+	<script src="assets/plugins/bootstrap-combobox/js/bootstrap-combobox.js"></script>
+	<script src="assets/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+	<script src="assets/js/form-plugins.demo.min.js"></script>
+	
+	<script src="assets/plugins/powerange/powerange.min.js"></script>
+	<script src="assets/js/form-slider-switcher.demo.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	<script>
 		$(document).ready(function() {
 			App.init();
+			FormWizardValidation.init();
 		});
+		
+		
+	
+		$(document).ready(function() {
+			App.init();
+			FormPlugins.init();
+		});
+		
+		$(document).ready(function() {
+			App.init();
+			FormSliderSwitcher.init();
+		});
+	
 	</script>
 </body>
 </html>
