@@ -1,58 +1,109 @@
-<div class="container"> 
-  <div class="row">
- 
- <div class="col-md-4">
+<!-- begin page-header -->
+			<h1 class="page-header">Edit Profile <small>bla bla...</small></h1>
+			<!-- end page-header -->
+			<!-- begin profile-container -->
+            <div class="profile-container">
+                <!-- begin profile-section -->
+                <div class="profile-section">
+                    <!-- begin profile-left -->
+                    <div class="profile-left">
+                        <!-- begin profile-image -->
+                        <div class="profile-image">
+                            <img src="/static/img/profile-cover.jpg" />
+                            <i class="fa fa-user hide"></i>
+                        </div>
+                        <!-- end profile-image -->
+                        <div class="m-b-10">
+                            <a href="#" class="btn btn-warning btn-block btn-sm">Change Picture</a>
+                        </div>
+                        <!-- begin profile-highlight -->
+                        <div class="profile-highlight">
+                            <h4><i class="fa fa-cog"></i> Bla Bla</h4>
+                            
+                        </div>
+                        <!-- end profile-highlight -->
+                    </div>
+                    <!-- end profile-left -->
+                    <!-- begin profile-right -->
+                    <div class="profile-right">
+                        <!-- begin profile-info -->
+                        <div class="profile-info">
+                            <!-- begin table -->
+                            <div class="table-responsive">
+                                <table class="table table-profile">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>
+                                                <h4>{{user.cn}} <small>bla bla</small></h4>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="highlight">
+                                            <td class="field">Sex:</td>
+                                            <td>{{user.gender}}</td>
+                                            <td class="field">Birthday:</td>
+                                            <td>{{user.birthDate}}</td>
+                                        </tr>
+                                        <tr class="divider">
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        
+                                        {{#each user.mail}}
+                                        <tr>
+                                              <td class="field">Email</td>
+                                              <td>{{this}}</td>
+                                        </tr>
+                                        {{else}}
+                                        <tr>
+                                              <td class="field">Email</td>
+                                              <td>{{user.mail}}</td>
+                                        </tr>
+                                        {{/each}}
+                                        
+                                        <tr>
+                                            <td class="field">Field of studies:</td>
+                                            <td>Gunnery Sergeant</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="field">Tshirt size:</td>
+                                            <td>M</td>
+                                        </tr>
+                                        <tr class="divider">
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        <tr class="highlight">
+                                            <td class="field">About Me</td>
+                                            <td>{{user.description}}</td>
+                                        </tr>
+                                        <tr class="divider">
+                                            <td colspan="2"></td>
+                                        </tr>
+                                        {{#if membership}}
+                                          <tr>
+                                              <td class="field">Memberships</td>
+                                              <td></td>
+                                          </tr>
+                                          {{#each membership}}
+                                            <tr>
+                                                <td class="field">{{bodyNameAscii}}</td>
+                                                <td>{{memberType}}) since {{memberSinceDate}}</td>
+                                            </tr>
+                                          {{/each}}
+                                        {{/if}}
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- end table -->
+                        </div>
+                        <!-- end profile-info -->
+                    </div>
+                    <!-- end profile-right -->
+                </div>
+                <!-- end profile-section -->
+               
+            </div>
+			<!-- end profile-container -->
 
-<img class="img-circle img-responsive center-block" width="250" height="250" src="http://thesocialmediamonthly.com/wp-content/uploads/2015/08/photo.png"/>
-
-<br>
-<br><br>
-<br>
-
- </div> 
-
-
-<div class="col-md-8">
-
-
-<table class="table">
-
-
-<h4><small>Sex:</small> {{user.gender}} </h4>
-<h4><small>Birthday:</small> {{user.birthDate}} </h4>
-<h4><small>Email:</small> 
-    {{#each user.mail}}
-          <ul>
-              <li>{{this}}</li>
-           </ul>
-        {{else}}
-          {{user.mail}}
-        {{/each}}
-        </h4>
-<h4><small>Field of studies:</small> Gunnery Sergeant</h4>
-<h4><small>Tshirt size:</small> m </h4>
-
-{{#if membership}}
-<h4><small>Memberships:</small></h4>
- <ul class="list-unstyled">
-  {{#each membership}}
-  <li><h4>({{memberType}}) of {{bodyNameAscii}} since {{memberSinceDate}}</h4>
-    {{#if changeLog}}
-      <ul>
-        {{#each changeLog}}
-         <li><strong>oppa:</strong> {{this}}</li>
-        {{/each}}
-      </ul>
-    {{/if}}
-  </li>
-  {{/each}}
-</ul>
-{{/if}}
- <br>
-<br><br>
-<br>
-
- 
-<br>
-<br>
-    </div> <!-- /container -->
