@@ -1,0 +1,17 @@
+{
+  "port": 8081,
+  "rest": {
+    "url": "http://localhost:8080"
+  },
+  "ldap": {
+    "url": "ldap://localhost:389",
+    "admin": "cn=admin,o=aegee,c=eu",
+    "pass": "aegee"
+  },
+  "secret": "aegeerocks",
+  "email": {
+    "address": "itc.test@aegee.eu",
+    "user": "itc.test",
+    "password": "verysecret"
+  }
+}
