@@ -1,100 +1,65 @@
-
-
-     <div class="bs-docs-header" id="content">
-        <div class="container" >  
-    <h1>List of applicants to the body: {{bodyCode}}</h1>
-        <p> </p>
-    <hr>
-        
-</div>
-      </div>
+<!-- begin page-header -->
+			<h1 class="page-header">{{body}} <small>Membership Applications</small></h1>
+			<!-- end page-header -->
+			
     
-<div class="container"> 
-  
- 
-<form action="/applications/processmembership"  method="post" class="form-inline">
-<table class="table table-hover">
-  <tr>
-    <th>Name</th>
-    <th>uid</th>
-    <th>Application date</th>
-    <!--<th>Gender</th>-->
-    <th>Mail</th>
-    <th>Actions</th>
-  </tr>
+ <!-- begin row -->
+			<div class="row">
+			    <!-- begin col-12 -->
+			    <div class="col-md-12">
+			        <!-- begin panel -->
+                    <div class="panel panel-inverse">
+                        <div class="panel-heading">
+                            
+                            <h4 class="panel-title">List of applicants</h4>
+                        </div>
+                        <div class="panel-body">
+                            <table id="data-table" class="table table-striped table-bordered nowrap" width="100%">
+                                <thead>
+                                    <tr>
+                                       	    <th>Name</th>
+					    <th>uid</th>
+					    <th>Member since</th>
+					    <th>Member until</th>
+					    <!--<th>Gender</th>-->
+					    <th>Mail</th>
+					    <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                	{{#each applicant}}
+                                    <tr class="odd gradeX">
+                                        <td>{{cn}}</td>
+				        <td> <a href="/user/{{uid}}">{{uid}}</a> </td> <!--or maybe using <a href> directly on the name?-->
+				        <td>{{memberSinceDate}}</td>
+				        <td>{{memberUntilDate}}</td>
+				        <td>{{mail}}</td>
 
-{{#each applicant}}
-      <tr>
-        <td>{{cn}}</td>
-        <td> <a href="/user/{{uid}}">{{uid}}</a> </td> <!--or maybe using <a href> directly on the name?-->
-        <td>{{memberSinceDate}}</td>
-        <td>{{mail}}</td>
-
-        <td>    
-          <div class="form-group">
-            <!-- as of now the hidden fields are useless - the uid and member are coded inline of the memberType-->
-            <input type="hidden" name="uid" value={{uid}}  class="form-control"></input>
-            <input type="hidden" name="bodyCode" value={{bodyCode}}  class="form-control"></input>
-
-            <div class="radio-inline has-success">
-            <label>
-                <input type="radio" name="memberType-{{uid}}-{{bodyCode}}" value="Member">Accept</input>
-            </label>
+										<td>
+											<div class="btn-group m-r-5 m-b-5">
+											<a href="javascript:;" class="btn btn-success btn-xs"><i class="fa fa-edit"></i> Application</a>
+											<a href="javascript:;" data-toggle="dropdown" class="btn btn-success dropdown-toggle btn-xs" aria-expanded="false">
+												<span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu pull-right">
+												<li><a href="javascript:;" class="text-success">Accept Application</a></li>
+												<li><a href="javascript:;" class="text-danger">Reject Application</a></li>
+												<li><a href="javascript:;">Delete Application</a></li>
+												
+											</ul>
+										</div>
+										</td>
+                                    </tr>
+                                     {{/each}} 
+                                    
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- end panel -->
+                </div>
+                <!-- end col-12 -->
             </div>
+            <!-- end row -->
 
-            <div class="radio-inline has-error">
-            <label>
-                <input type="radio" name="memberType-{{uid}}-{{bodyCode}}" value="Rejected">Reject</input>
-            </label>
-            </div>
-
-            <div class="radio-inline has-warning">
-            <label>
-                <input type="radio" name="memberType-{{uid}}-{{bodyCode}}" value="Applicant" checked>Decide later</input>
-            </label>
-            </div>
-            
-          </div>
-                
-        </td>
-
-
-      </tr>
-  
- {{/each}} 
-
-      </tr> 
-    </br>
-</table>  
-
-<button type="submit" onClick="window.location.reload()" class="btn btn-info">submit</button>
- </form> 
-
-    </div> <!-- /container -->
-  
-  <footer class="bs-docs-footer">
-  <div class="container" style="background-color:#666; !important;">  
-  
-    </br>
-  <img class="img-responsive" src="/static/css/logo_rgb_white_transparent_small.png">
-  
-    </br>
-  
-      
-    </div> 
-  </footer>
-  
-  
-  
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./js/ie10-viewport-bug-workaround.js"></script>
-  </body>
-  
- 
-  
-</html>
