@@ -3,6 +3,10 @@
   "rest": {
     "url": "http://localhost:8080"
   },
+  "module": {
+      "user": "profiles",
+      "password": "verysecret"
+  },
   "ldap": {
     "url": "ldap://localhost:389",
     "admin": "cn=admin,o=aegee,c=eu",
