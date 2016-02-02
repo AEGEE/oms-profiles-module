@@ -5,21 +5,17 @@
   "license": "Apache-2.0",
   "repository": "AEGEE/oms-profiles-module",
   "main": "omsmodule.js",
-  
-  "repository": "AEGEE/oms-profiles-module",
-
   "dependencies": {
-    "express": "~4.0.0",
-    "express-handlebars": "~2.0.0",
-    "restify": "~3.0.0",
-    
-    "morgan": "~1.0.0",
     "body-parser": "~1.0.0",
     "cookie-parser": "~1.0.0",
+    "express": "~4.0.0",
+    "express-handlebars": "~2.0.0",
+    "express-session": "~1.0.0",
     "method-override": "~1.0.0",
-    "express-session": "~1.0.0",   
-
-    "passport" : "~0.1.17",         
-    "passport-ldapauth" : "~0.4.0"
+    "morgan": "~1.0.0",
+    "passport": "~0.1.17",
+    "passport-ldapauth": "~0.4.0",
+    "passport-remember-me": "0.0.1",
+    "restify": "~3.0.0"
   }
 }
