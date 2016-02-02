@@ -4,8 +4,8 @@
     "url": "http://localhost:8080"
   },
   "module": {
-      "user": "profiles",
-      "password": "verysecret"
+      "user": "profilesModule",
+      "password": "PrOfIlEmOdUlE"
   },
   "ldap": {
     "url": "ldap://localhost:389",
