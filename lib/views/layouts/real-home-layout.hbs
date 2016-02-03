@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+    {{>head}}
+
+<body data-spy="scroll" data-target="#header-navbar" data-offset="51">
+
+    {{{body}}}
+
+    {{>navbar-home}}
+
+    {{>footer-home}}
+    <!-- ================== BEGIN BASE JS ================== -->
+    <script src="/static/plugins/jquery/jquery-1.9.1.min.js"></script>
+    <script src="/static/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
+    <script src="/static/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="/static/crossbrowserjs/html5shiv.js"></script>
+        <script src="/static/crossbrowserjs/respond.min.js"></script>
+        <script src="/static/crossbrowserjs/excanvas.min.js"></script>
+    <![endif]-->
+    <script src="/static/plugins/jquery-cookie/jquery.cookie.js"></script>
+    <script src="/static/plugins/scrollMonitor/scrollMonitor.js"></script>
+    <script src="/static/js/apps.min.js"></script>
+    <!-- ================== END BASE JS ================== -->
+    
+    <script>    
+        $(document).ready(function() {
+            App.init();
+        });
+    </script>
+
+</body>
+
+</html>
