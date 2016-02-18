@@ -3,7 +3,7 @@
     
     
     <!-- begin #home -->
-    <div id="home" class="content has-bg home">
+    <div id="home" class="content_home has-bg home">
         <!-- begin content-bg -->
         <div class="content-bg">
             <img src="/static/img/home-bg.jpg" alt="Home" />
@@ -25,7 +25,7 @@
     <!-- end #home -->
     
     <!-- begin #about -->
-    <div id="about" class="content" data-scrollview="true">
+    <div id="about" class="content_home" data-scrollview="true">
         <!-- begin container -->
         <div class="container" data-animation="true" data-animation-type="fadeInDown">
             <h2 class="content-title">About Us</h2>
@@ -105,7 +105,7 @@
     <!-- end #about -->
 
     <!-- begin #milestone -->
-    <div id="milestone" class="content bg-black-darker has-bg" data-scrollview="true">
+    <div id="milestone" class="content_home bg-black-darker has-bg" data-scrollview="true">
         <!-- begin content-bg -->
         <div class="content-bg">
             <img src="/static/img/milestone-bg.jpg" alt="Milestone" />
@@ -159,7 +159,7 @@
     
     
     <!-- beign #means -->
-    <div id="means" class="content" data-scrollview="true">
+    <div id="means" class="content_home" data-scrollview="true">
         <!-- begin container -->
         <div class="container">
             <h2 class="content-title">Our Activities</h2>
@@ -239,7 +239,7 @@
     
    
     <!-- begin #testimonials -->
-    <div id="testimonials" class="content has-bg bg-green" data-scrollview="true">
+    <div id="testimonials" class="content_home has-bg bg-green" data-scrollview="true">
         <!-- begin content-bg -->
         <div class="content-bg">
             <img src="/static/img/client-bg.jpg" alt="Client" />
@@ -301,76 +301,83 @@
     <!-- end #testimonials -->
     
     <!-- begin #membership -->
-    <div id="membership" class="content" data-scrollview="true">
+    <div id="membership" class="content_home" data-scrollview="true">
         <!-- begin container -->
-        <div class="container">
-            <h2 class="content-title">Membership</h2>
-            <p class="content-desc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur eros dolor,<br />
-                sed bibendum turpis luctus eget
-            </p>
-            <!-- begin pricing-table -->
-            <ul class="pricing-table col-3">
-                <li data-animation="true" data-animation-type="fadeInUp">
-                    <div class="pricing-container">
-                        <h3>User</h3>
-                        <div class="price">
-                            <div class="price-figure">
-                                <span class="price-number">LIMITED</span>
-                                <span class="price-tenure">only few options</span>
-                            </div>
-                        </div>
-                        <ul class="features">
-                            <li>public Events</li>
-                        </ul>
-                        <div class="footer">
-                            <a href="register" class="btn btn-inverse btn-block">Register</a>
+<div class="container">
+    <div class="row">
+        <h2 class="content-title">Membership</h2>
+        <p class="content-desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur eros dolor,<br>
+            sed bibendum turpis luctus eget
+        </p>
+        <!-- begin pricing-table -->
+        <ul class="pricing-table">
+            <div class="membership col-lg-4 col-md-4">
+            <li data-animation="true" data-animation-type="fadeInUp">
+                <div class="pricing-container">
+                    <h3>User</h3>
+                    <div class="price">
+                        <div class="price-figure">
+                            <span class="price-number">LIMITED</span>
+                            <span class="price-tenure">only few options</span>
                         </div>
                     </div>
-                </li>
-                
-                <li class="highlight" data-animation="true" data-animation-type="fadeInUp">
-                    <div class="pricing-container">
-                        <h3>AEGEE Member</h3>
-                        <div class="price">
-                            <div class="price-figure">
-                                <span class="price-number">FULL MEMBER</span>
-                            </div>
-                        </div>
-                        <ul class="features">
-                            <li>all AEGEE Events</li>
-                            <li>Summer University</li>
-                            <li>Training Events</li>
-                            <li>Thematic Projects</li>
-                            <li>AEGEE Newsletter</li>
-                        </ul>
-                        <div class="footer">
-                            <a href="register" class="btn btn-theme btn-block">Register</a>
+                    <ul class="features">
+                        <li>public Events</li>
+                    </ul>
+                    <div class="footer mem_footer">
+                        <a href="register" class="btn btn-inverse btn-block">Register</a>
+                    </div>
+                </div>
+            </li>
+            </div>
+            <div class="membership col-lg-4 col-md-4">
+            <li class="highlight" data-animation="true" data-animation-type="fadeInUp">
+                <div class="pricing-container">
+                    <h3>AEGEE Member</h3>
+                    <div class="price">
+                        <div class="price-figure">
+                            <span class="price-number">FULL MEMBER</span>
                         </div>
                     </div>
-                </li>
-                <li data-animation="true" data-animation-type="fadeInUp">
-                    <div class="pricing-container">
-                        <h3>Alumni</h3>
-                        <div class="price">
-                            <div class="price-figure">
-                                <span class="price-number">AEGEE Alumni</span>
-                                <span class="price-tenure">for past AEGEE Members</span>
-                            </div>
-                        </div>
-                        <ul class="features">
-                            <li>Alumni database</li>
-                            <li>Back to Brussels</li>
-                            <li>Almni Events</li>
-                            <li>AEGEE News</li>
-                        </ul>
-                        <div class="footer">
-                            <a href="register" class="btn btn-inverse btn-block">Register</a>
+                    <ul class="features">
+                        <li>all AEGEE Events</li>
+                        <li>Summer University</li>
+                        <li>Training Events</li>
+                        <li>Thematic Projects</li>
+                        <li>AEGEE Newsletter</li>
+                    </ul>
+                    <div class="footer mem_footer">
+                        <a href="register" class="btn btn-inverse btn-block">Register</a>
+                    </div>
+                </div>
+            </li>
+            </div>
+            <div class="membership col-lg-4 col-md-4">
+            <li data-animation="true" data-animation-type="fadeInUp">
+                <div class="pricing-container">
+                    <h3>Alumni</h3>
+                    <div class="price">
+                        <div class="price-figure">
+                            <span class="price-number">AEGEE Alumni</span>
+                            <span class="price-tenure">for past AEGEE Members</span>
                         </div>
                     </div>
-                </li>
-            </ul>
-        </div>
+                    <ul class="features">
+                        <li>Alumni database</li>
+                        <li>Back to Brussels</li>
+                        <li>Almni Events</li>
+                        <li>AEGEE News</li>
+                    </ul>
+                    <div class="footer mem_footer">
+                        <a href="register" class="btn btn-inverse btn-block">Register</a>
+                    </div>
+                </div>
+            </li>
+            </div>
+        </ul>
+    </div>
+</div>
         <!-- end container -->
     </div>
     <!-- end #membership -->
