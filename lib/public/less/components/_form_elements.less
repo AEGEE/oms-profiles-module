@@ -1,17 +1,18 @@
 /* Form Elements */
 
 .form-control {
-    border: 1px solid #ccd0d4;
+    border: 2px solid #ccd0d4;
     font-size: 12px;
-    .border-radius(3px);
     .box-shadow(none);
+    .border-radius(3px);
 }
 .form-control.input-white {
     background: #fff;
     border-color: #fff;
-}
-.form-control.input-white:focus {
-    .box-shadow(none);
+    
+    &:focus {
+        .box-shadow(none);
+    }
 }
 .form-control[disabled], 
 .form-control[readonly],
@@ -22,35 +23,38 @@ fieldset[disabled] .form-control {
 .form-control[disabled]:focus, 
 .form-control[readonly]:focus,
 fieldset[disabled] .form-control:focus {
-    .box-shadow(none);
     border: 1px solid #ccd0d4;
+    .box-shadow(none);
 }
 .form-control:focus {
     border-color: #9fa2a5;
     .box-shadow(none);
 }
-.form-horizontal.form-bordered .form-group {
-    border-bottom: 1px solid #eee;
-    margin: 0;
-}
-.form-horizontal.form-bordered .form-group:last-child {
-    border-bottom: 0;
-}
-.form-horizontal.form-bordered .form-group > .control-label {
-    padding: 22px 15px 15px;
-}
-.form-horizontal.form-bordered .form-group > div {
-    padding: 15px;
-}
-.form-horizontal.form-bordered .form-group > div {
-    border-left: 1px solid #eee;
-}
-.form-horizontal.form-bordered .form-group > .control-label {
-    border-right: 1px solid #eee;
-    margin-right: -1px;
-}
-.form-horizontal.form-bordered .has-feedback .form-control-feedback {
-    top: 15px;
+.form-horizontal.form-bordered {
+    & .form-group {
+        border-bottom: 1px solid #eee;
+        margin: 0;
+        
+        &:last-child {
+            border-bottom: 0;
+        }
+        & > .control-label {
+            padding: 22px 15px 15px;
+        }
+        & > div {
+            padding: 15px;
+        }
+        & > div {
+            border-left: 1px solid #eee;
+        }
+        & > .control-label {
+            border-right: 1px solid #eee;
+            margin-right: -1px;
+        }
+    }
+    & .has-feedback .form-control-feedback {
+        top: 15px;
+    }
 }
 label {
     font-weight: 500;
@@ -74,10 +78,12 @@ label {
 }
 .has-success .form-control {
     border-color: @green;
+    
+    &:focus {
+        border-color: @dark_green;
+    }
 }
-.has-success .form-control:focus {
-    border-color: @dark_green;
-}
+.has-success .form-control
 .has-warning .help-block, 
 .has-warning .control-label, 
 .has-warning .radio, 
@@ -89,9 +95,10 @@ label {
 }
 .has-warning .form-control {
     border-color: @orange;
-}
-.has-warning .form-control:focus {
-    border-color: @dark_orange;
+    
+    &:focus {
+        border-color: @dark_orange;
+    }
 }
 .has-error .help-block, 
 .has-error .control-label, 
@@ -104,9 +111,10 @@ label {
 }
 .has-error .form-control {
     border-color: @red;
-}
-.has-error .form-control:focus {
-    border-color: @dark_red;
+    
+    &:focus {
+        border-color: @dark_red;
+    }
 }
 .form-control-feedback {
     line-height: 34px;
